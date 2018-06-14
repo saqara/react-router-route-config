@@ -28,10 +28,7 @@
     "route",
     "config"
   ],
-  "repository": {
-    "type": "git",
-    "url": "github.com/go-aos/react-router-route-config"
-  },
+  "repository": "github:go-aos/react-router-route-config",
   "authors": [
     "Stephane Barale <stephane.barale@go-aos.io> (https://github.com/C0r3y8)",
     "AOS"
