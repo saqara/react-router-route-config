@@ -1,14 +1,14 @@
-# 🗺️ RouteConfig
+# ReactRouterRouteConfig
 
-Static route configuration helper
+Use `route-config` with `react-router`
 
 ## Installation
 [NPM](https://www.npmjs.com/):
 ```
-$ npm install --save route-config
+$ npm install --save react-router-route-config
 ```
 
 [Yarn](https://yarnpkg.com/lang/en/):
 ```
-yarn add route-config
+yarn add react-router-route-config
 ```
