@@ -2,7 +2,7 @@ import { Route, Switch } from 'react-router-dom'
 import { createElement } from 'react'
 import { object } from 'prop-types'
 
-import withRouteMap from './hoc/with_route_map'
+import withRouteMap from './hoc/with_route_config'
 import { configName } from './constants'
 
 export default ({

@@ -1,4 +1,4 @@
-import { Config } from 'route-map'
+import { Config } from 'route-config'
 
 import { configName } from './constants'
 

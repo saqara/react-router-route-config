@@ -77,7 +77,7 @@
   "peerDependencies": {
     "react": "^16.3.1",
     "react-router-dom": "^4.2.2",
-    "route-map": "^0.10.0"
+    "route-config": "^0.10.0"
   },
   "npmName": "react-router-route-config",
   "npmFileMap": [
