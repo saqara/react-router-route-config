@@ -16,4 +16,5 @@ class ReactRouterConfig extends Config {
   }
 }
 
-export default ({ defaultValue, name }) => new ReactRouterConfig(name, defaultValue)
+export default ({ defaultValue, name } = {}) =>
+  new ReactRouterConfig(name, defaultValue)

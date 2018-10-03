@@ -2,7 +2,7 @@ import { Route, Switch } from 'react-router-dom'
 import { createElement } from 'react'
 import { object } from 'prop-types'
 
-import withRouteMap from './hoc/with_route_config'
+import withRouteConfig from './hoc/with_route_config'
 import { configName } from './constants'
 
 export default ({
@@ -11,7 +11,12 @@ export default ({
   mapConfigName = configName
 }) => {
   const renderRoute = (route) => {
-    const { children, component, render, ...routeProps } = route.config[mapConfigName]
+    const {
+      children,
+      component,
+      render,
+      ...routeProps
+    } = route.config[mapConfigName]
     return createElement(Route, {
       ...routeProps,
       key: route.id,
@@ -43,7 +48,9 @@ export default ({
       const namespaces = Object.keys(namespace.namespaces || {}).map(
         key => namespace.namespaces[key]
       )
-      const routes = Object.keys(namespace.routes || {}).map(key => namespace.routes[key])
+      const routes = Object.keys(namespace.routes || {}).map(
+        key => namespace.routes[key]
+      )
 
       let element = null
       if (namespaces.length > 0 || routes.length > 0) {
@@ -63,12 +70,12 @@ export default ({
       return element
     }
 
-  const SiteMap = ({ routeMap }) => renderMap(routeMap.getMap())
+  const SiteMap = ({ routeConfig }) => renderMap(routeConfig.getMap())
   if (process.env.NODE_ENV === 'development') {
     SiteMap.displayName = 'SiteMap'
     SiteMap.propTypes = {
-      routeMap: object.isRequired
+      routeConfig: object.isRequired
     }
   }
-  return withRouteMap()(SiteMap)
+  return withRouteConfig()(SiteMap)
 }
