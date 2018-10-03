@@ -2,9 +2,9 @@ import { createElement } from 'react'
 
 import { Provider as ProviderComponent } from './context'
 
-const Provider = ({ children, routeMap }) => createElement(
+const Provider = ({ children, routeConfig }) => createElement(
   ProviderComponent,
-  { value: routeMap },
+  { value: routeConfig },
   children
 )
 

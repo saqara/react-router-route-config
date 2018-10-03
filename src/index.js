@@ -1,13 +1,13 @@
 import Provider from './components/provider'
+import createReactRouterConfig from './config'
 import createSiteMap from './create_site_map'
-import reactRouterConfig from './config'
-import reactRouterMap from './hoc/react_router_config'
-import withRouteMap from './hoc/with_route_config'
+import routeConfigToReactRouter from './hoc/route_config_to_react_router'
+import withRouteConfig from './hoc/with_route_config'
 
 export {
   Provider,
+  createReactRouterConfig,
   createSiteMap,
-  reactRouterConfig,
-  reactRouterMap,
-  withRouteMap
+  routeConfigToReactRouter,
+  withRouteConfig
 }
