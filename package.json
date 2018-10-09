@@ -1,6 +1,6 @@
 {
   "name": "react-router-route-config",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "User `route-config` with `react-router`",
   "repository": "github:go-aos/react-router-route-config",
   "bugs": "https://github.com/go-aos/react-router-route-config/issues",

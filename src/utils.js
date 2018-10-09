@@ -1,9 +1,6 @@
 export const routeConfigToReactRouter = (routeConfig, path) => {
   if (typeof path === 'string' && path.charAt(0).match(/[a-z0-9]/)) {
-    return {
-      route: routeConfig.getRoute(path),
-      to: routeConfig.url(path)
-    }
+    return { to: routeConfig.url(path) }
   }
   if (typeof path === 'object' && (
     (!path.pathname && path.key) ||
@@ -11,9 +8,6 @@ export const routeConfigToReactRouter = (routeConfig, path) => {
   )) {
     const { key, params, pathname, ...other } = path
     return {
-      route: key
-        ? routeConfig.getRoute(key)
-        : routeConfig.getRoute(pathname),
       to: {
         ...other,
         pathname: key
