@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renderRoute render component using custom config name 1`] = `
+<div>
+  Hello World!!!
+</div>
+`;
+
+exports[`renderRoute render component using default config name 1`] = `
+<div>
+  Hello World!!!
+</div>
+`;

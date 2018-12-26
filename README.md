@@ -20,20 +20,24 @@ In ES6:
 ## Use
 ```js
 import { BrowserRouter } from 'react-router-dom'
-import { Provider, createSiteMap } from 'react-router-route-config'
+import { Provider, RouteConfigSiteMap, createReactRouterConfig } from 'react-router-route-config'
 import { RouteConfig } from 'route-config'
+
+const Home = () => <div>Home</div>
 
 const routeConfig = new RouteConfig({
   routes: {
-    home: { path: '/home' }
+    home: {
+      config: { reactRouter: { exact: true, render: Home } }
+      path: '/home'
+    }
   }
-})
-const SiteMap = createSiteMap()
+}, { configs: [createReactRouterConfig()] })
 
 const App = () => (
   <Provider routeConfig={routeConfig}>
     <BrowserRouter>
-      <SiteMap />
+      <RouteConfigSiteMap />
     </BrowserRouter>
   </Provider>
 ```
@@ -46,7 +50,7 @@ __Props__:
   - `routeConfig` (RouteConfig): instance of `RouteConfig`.
 
 #### `createReactRouterConfig` (Function)
-Returns an extended `Config` of `route-config` that you can pass to `RouteConfg` constructor to use reactRouter in namespaces or routes config.
+Returns a reactRouter config manager for `RouteConfig`
 
 __Arguments__:
   - [__options={}__] (Object): options passed to `ReactRouterConfig` constructor
@@ -58,34 +62,31 @@ _Ex_:
 import { createReactRouterConfig } from 'react-router-route-config'
 import { RouteConfig } from 'route-config'
 
-import Home from './home'
+const Home = () => <div>Home</div>
 
 const routeConfig = new RouteConfig({
   routes: {
     home: {
       config: {
-        reactRouter: { component: Home }
+        reactRouter: { render: Home }
       },
       path: '/home'
     }
   }
-}, {
-  configs: [reactRouterConfig({ defaultValue: { exact: true } })]
-})
+}, { configs: [reactRouterConfig({ defaultValue: { exact: true } })] })
 //=> <Route component={Home} exact={true} />
 ```
 
-#### `createSiteMap` (Function)
-Returns `React.Component` that generate router tree according to `routeConfig` object
+#### `RouteConfigSiteMap` (Component)
+`React.Component` that generate router tree according to your `routeConfig`
 
-__Arguments__:
-  - [__options={}__] (Object):
-    - [`AnimationComponent`] (React.Component): wrap each `Switch`
-    - [`NotFoundComponent`] (React.Component): component to render when no `Route` match in `Switch`
-    - [`mapConfigName='reactRouter'`] (String): react router config name in routeConfig.
+__Props__:
+  - [`AnimationComponent`] (React.Component): wrap each `Switch`
+  - [`NotFoundComponent`] (React.Component): component to render when no `Route` match in `Switch`
+  - [`configName='reactRouter'`] (String): react router config name in routeConfig.
 
-#### `routeConfigToReactRouter` (Function)
-HOC that transform props to `react-router` props format.
+#### `routeConfigToReactRouter` (HOC)
+Enable you to use route key rather than path for ReactRouter components.
 
 _Ex_:
 ```js
@@ -116,8 +117,19 @@ const RouteConfigLink = routeConfigToReactRouter(Link)
 //=> <Link to="/posts/1">Home</Link>
 ```
 
-#### `withRouteConfig` (Function)
-HOC that pass `Provider` routeConfig to wrapper component
+#### `withRouteConfig` (HOC)
+Returns a HOC that inject `routeConfig` in `key` props. By default `routeConfig`
 
 __Arguments__:
   - [__key='routeConfig'__] (String): prop `name` to pass to wrapper component
+
+_Ex_:
+```js
+import { withRouteConfig } from 'react-router-route-config'
+
+const Button = withRouteConfig()({ routeConfig, to }) => (
+  <button onClick={() => window.location.href = routeConfig.url(to)}>
+    Button with routeConfig
+  </button>
+)
+```

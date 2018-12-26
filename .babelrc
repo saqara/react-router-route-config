@@ -1,27 +1,23 @@
 {
   "presets": [
     [
-      "env",
+      "@babel/preset-env",
       {
-        "targets": {
-          "browsers": [
-            "ie >= 11"
-          ]
-        },
-        "exclude": ["transform-async-to-generator", "transform-regenerator"],
-        "modules": false,
-        "loose": true
+        "targets": { "browsers": ["last 2 versions", "Explorer 11"] },
+        "useBuiltIns": "usage"
       }
-    ]
+    ],
+    "@babel/preset-react"
   ],
   "plugins": [
-    "transform-object-rest-spread"
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/plugin-proposal-class-properties"
   ],
   "env": {
     "commonjs": {
       "presets": [
         [
-          "env",
+          "@babel/preset-env",
           {
             "loose": true
           }
