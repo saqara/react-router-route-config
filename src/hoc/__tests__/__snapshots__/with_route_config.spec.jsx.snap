@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`withRouteConfig hoc custom prop name 1`] = `
+<span>
+  Has Route Config ;)
+</span>
+`;
+
+exports[`withRouteConfig hoc default prop name 1`] = `
+<span>
+  Has Route Config ;)
+</span>
+`;

@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renderNamespace render component using custom config name 1`] = `
+<div>
+  Posts
+</div>
+`;
+
+exports[`renderNamespace render component using default config name 1`] = `
+<div>
+  Posts
+</div>
+`;
+
+exports[`renderNamespace render posts.show with namespace layout using custom config name 1`] = `
+<div>
+  <p>
+    Posts namespace
+  </p>
+  <div>
+    Post 1
+  </div>
+</div>
+`;
+
+exports[`renderNamespace render posts.show with namespace layout using default config name 1`] = `
+<div>
+  <p>
+    Posts namespace
+  </p>
+  <div>
+    Post 1
+  </div>
+</div>
+`;

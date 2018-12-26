@@ -6,16 +6,17 @@ import { routeConfigToReactRouter } from '../utils'
 import withRouteConfig from './with_route_config'
 
 export default (Comp) => {
-  const Wrapper = ({ routeConfig, to, ...other }) => createElement(Comp, {
-    ...other,
-    ...routeConfigToReactRouter(routeConfig, to)
-  })
+  const RouteConfigToReactRouter = ({ routeConfig, to, ...other }) =>
+    createElement(Comp, {
+      ...other,
+      to: routeConfigToReactRouter(routeConfig, to)
+    })
   if (process.env.NODE_ENV === 'development') {
-    Wrapper.displayName = 'RouteConfigToReactRouter'
-    Wrapper.propTypes = {
+    RouteConfigToReactRouter.displayName = `routeConfigToReactRouter(${Comp.displayName || Comp.name})`
+    RouteConfigToReactRouter.propTypes = {
       routeConfig: object.isRequired,
       to: oneOfType([object, string]).isRequired
     }
   }
-  return withRouteConfig()(Wrapper)
+  return withRouteConfig()(RouteConfigToReactRouter)
 }

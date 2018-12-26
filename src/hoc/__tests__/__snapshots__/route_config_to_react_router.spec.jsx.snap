@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`routeConfigToReactRouter hoc change \`to\` props 1`] = `
+<span>
+  /posts
+</span>
+`;
+
+exports[`routeConfigToReactRouter hoc change \`to\` props 2`] = `
+<span>
+  /posts
+</span>
+`;
+
+exports[`routeConfigToReactRouter hoc change \`to\` props 3`] = `
+<span>
+  /posts/1
+</span>
+`;
+
+exports[`routeConfigToReactRouter hoc not change \`to\` props 1`] = `
+<span>
+  /posts
+</span>
+`;
+
+exports[`routeConfigToReactRouter hoc not change \`to\` props 2`] = `
+<span>
+  /posts
+</span>
+`;
